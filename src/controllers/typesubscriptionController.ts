@@ -25,8 +25,8 @@ class TypeSubscriptionCreate {
 
   async delete(req: Request, res: Response) {
     try {
-      const id = req.query;
-      await TypeSubscription.destroy({ where: { id: id.id } });
+      const id = req.query.id;
+      await TypeSubscription.destroy({ where: { id: id } });
       res.status(200).json({ messege: "Модель удалена" });
     } catch (e) {
       res.status(400).json(e);

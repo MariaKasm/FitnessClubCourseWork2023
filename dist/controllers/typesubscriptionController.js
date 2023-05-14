@@ -91,8 +91,8 @@ var TypeSubscriptionCreate = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        id = req.query;
-                        return [4 /*yield*/, models_1.TypeSubscription.destroy({ where: { id: id.id } })];
+                        id = req.query.id;
+                        return [4 /*yield*/, models_1.TypeSubscription.destroy({ where: { id: id } })];
                     case 1:
                         _a.sent();
                         res.status(200).json({ messege: "Модель удалена" });

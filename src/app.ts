@@ -4,6 +4,7 @@ import express from "express";
 import dotenv from "dotenv";
 import DataBase from "./db/database";
 import routes from "./routes/routers";
+import logger from "./logger";
 
 dotenv.config();
 
@@ -15,11 +16,14 @@ app.use(express.json());
 
 app.use("/api", routes);
 
+logger.error("error");
+logger.info("info");
+
 const start = async () => {
   try {
     await DataBase.sync();
     await DataBase.authenticate();
-    app.listen(PORT, () => console.log("Server work " + PORT));
+    app.listen(PORT, () => logger.info("Server work " + PORT));
   } catch (e) {
     console.log(e);
   }

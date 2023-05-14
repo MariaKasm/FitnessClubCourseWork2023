@@ -3,12 +3,17 @@
 import express from "express";
 import dotenv from "dotenv";
 import DataBase from "./db/database";
+import routes from "./routes/routers";
 
 dotenv.config();
 
 const app = express();
 
 const PORT: number = +process.env.PORT;
+
+app.use(express.json());
+
+app.use("/api", routes);
 
 const start = async () => {
   try {

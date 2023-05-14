@@ -43,9 +43,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var dotenv_1 = __importDefault(require("dotenv"));
 var database_1 = __importDefault(require("./db/database"));
+var routers_1 = __importDefault(require("./routes/routers"));
 dotenv_1.default.config();
 var app = (0, express_1.default)();
 var PORT = +process.env.PORT;
+app.use(express_1.default.json());
+app.use("/api", routers_1.default);
 var start = function () { return __awaiter(void 0, void 0, void 0, function () {
     var e_1;
     return __generator(this, function (_a) {
